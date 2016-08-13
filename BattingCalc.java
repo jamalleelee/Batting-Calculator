@@ -8,44 +8,42 @@ import java.util.Scanner;
 public class BattingCalc {
 
 	public static void main(String[] args) {
-		double atBats=0;
+		double atBats = 0;
 		double hits = 0;
 		ArrayList<Double> battingData = new ArrayList<Double>();
 		Scanner keyboard = new Scanner(System.in);
 		boolean isValid = true;
-		double totalHits=0;
-		boolean isAlsoValid=true;
-		boolean validHitNumber=true;
-		double sluggingPercentage=0;
-		double battingPercentage=0;
+		double totalHits = 0;
+		boolean isAlsoValid = true;
+		boolean validHitNumber = true;
+		double sluggingPercentage = 0;
+		double battingPercentage = 0;
 		DecimalFormat df = new DecimalFormat("###.###");
 
 		do {
 			System.out.println("How many times did you go to bat?");
 			try {
 				atBats = keyboard.nextDouble();
-				isAlsoValid=false;
+				isAlsoValid = false;
 			} catch (InputMismatchException e) {
-				isAlsoValid=true;
+				isAlsoValid = true;
 			}
 			keyboard.nextLine();
-			
+
 		} while (isAlsoValid);
-		
+
 		do {
 			System.out.println("How many total hits did you get?");
 			try {
 				totalHits = keyboard.nextDouble();
-				validHitNumber=false;
+				validHitNumber = false;
 			} catch (InputMismatchException e) {
-				validHitNumber=true;
+				validHitNumber = true;
 			}
 			keyboard.nextLine();
-			
+
 		} while (validHitNumber);
-		
-		
-		
+
 		do {
 			for (int i = 0; i < totalHits; i++) {
 				double userInput = 0;
@@ -80,14 +78,12 @@ public class BattingCalc {
 
 			hits += battingData.get(i);
 
-			
 		}
-		battingPercentage=(totalHits/atBats);
-		System.out.println("Your batting percentage is: "+df.format(battingPercentage) );
-		sluggingPercentage=(hits/atBats);
-		System.out.println("Your slugging percentage is: "+ df.format(sluggingPercentage) );
-		
-		
-keyboard.close();
+		battingPercentage = (totalHits / atBats);
+		System.out.println("Your batting percentage is: " + df.format(battingPercentage));
+		sluggingPercentage = (hits / atBats);
+		System.out.println("Your slugging percentage is: " + df.format(sluggingPercentage));
+
+		keyboard.close();
 	}
 }
